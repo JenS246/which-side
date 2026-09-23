@@ -6,6 +6,18 @@ import { puzzles, characters } from "../src/puzzles.js";
 test("launch set has the requested puzzle mix", () => {
   assert.equal(puzzles.length, 8);
   assert.deepEqual(puzzles.map((puzzle) => puzzle.level), ["Tutorial", "Tutorial", "Standard", "Standard", "Standard", "Standard", "Challenge", "Challenge"]);
+  assert.deepEqual(puzzles.map((puzzle) => puzzle.difficultyRank), [1, 2, 3, 4, 5, 6, 7, 8]);
+});
+
+test("puzzles introduce more demanding clue systems in stages", () => {
+  assert.ok(puzzles[0].clues.some((clue) => clue.type === "direct"));
+  assert.ok(puzzles[1].clues.some((clue) => clue.type === "count"));
+  assert.ok(puzzles[2].clues.some((clue) => clue.group === "column"));
+  assert.ok(puzzles[3].clues.some((clue) => clue.group === "corners"));
+  assert.ok(puzzles[4].clues.some((clue) => clue.group === "neighbors"));
+  assert.ok(puzzles[5].clues.some((clue) => clue.group === "column") && puzzles[5].clues.some((clue) => clue.group === "corners"));
+  assert.equal(puzzles[6].clues.some((clue) => clue.type === "direct"), false);
+  assert.ok(puzzles[7].clues.filter((clue) => clue.type === "count").length >= 8);
 });
 
 test("characters use permitted party-team roles", () => {

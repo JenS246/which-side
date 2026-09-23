@@ -8,7 +8,7 @@ This is an original, standalone project. It does not use or modify the In Eviden
 
 ## How it works
 
-- Eight handcrafted puzzles: two tutorial, four standard, and two challenge cases
+- Eight handcrafted puzzles with a visible 1-to-8 difficulty ramp: guided links, paired deductions, row/column intersections, corners, neighbors, cross-board counts, linked systems, and a multi-clue finale
 - Deterministic in-browser solver that accepts a choice only when the visible clues establish it
 - Specific feedback for contradictory choices and neutral feedback when more information is needed
 - Hints, undo, reset, optional timer, local progress, and spoiler-free share results
@@ -43,6 +43,8 @@ The validator enumerates all 65,536 possible team assignments for every puzzle. 
 - every state reachable by choosing any currently supported move still has a supported next move;
 - all sixteen characters and all clues are reachable.
 
+The launch set is deliberately ordered. Case 1 teaches same/opposite links; later cases remove direct clues and combine row, column, corner, and neighbor constraints. The two challenge cases require linked clue systems rather than a single clue chain.
+
 The unit tests also cover supported, unsupported, and contradictory choices.
 
 ## Deployment
@@ -52,7 +54,7 @@ The production site is published with GitHub Pages from the `main` branch throug
 - Source: <https://github.com/JenS246/which-side>
 - Live game: <https://jens246.github.io/which-side/>
 
-No backend, database, private data, or secrets are used. Browser progress is stored only in `localStorage` under `which-side-progress-v1`.
+No backend, database, private data, or secrets are used. Browser progress is stored only in `localStorage` under `which-side-progress-v2`. The storage version was advanced when the launch puzzles were redesigned so older assignments cannot conflict with the new solutions.
 
 ## Accessibility
 

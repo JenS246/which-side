@@ -1,10 +1,10 @@
 import { puzzles, getPuzzle } from "./puzzles.js";
 import { TEAM, evaluateChoice, forcedMoves, proofForMove, teamName, visibleClueIds } from "./engine.js";
 
-const STORAGE_KEY = "which-side-progress-v1";
+const STORAGE_KEY = "which-side-progress-v2";
 const $ = (selector) => document.querySelector(selector);
 const elements = {
-  puzzleSelect: $("#puzzle-select"), level: $("#level-label"), caseNumber: $("#case-number"),
+  puzzleSelect: $("#puzzle-select"), level: $("#level-label"), caseNumber: $("#case-number"), difficulty: $("#difficulty-label"),
   title: $("#case-title"), summary: $("#case-summary"), progress: $("#progress"), board: $("#board"),
   clueList: $("#clue-list"), clueCount: $("#clue-count"), message: $("#message"), hint: $("#hint-button"),
   undo: $("#undo-button"), reset: $("#reset-button"), timerToggle: $("#timer-toggle"),
@@ -78,7 +78,7 @@ function clueById(id) {
 }
 
 function renderPuzzleSelector() {
-  elements.puzzleSelect.innerHTML = puzzles.map((item) => `<option value="${item.id}">${item.number}. ${item.title} (${item.level})</option>`).join("");
+  elements.puzzleSelect.innerHTML = puzzles.map((item) => `<option value="${item.id}">${item.number}. ${item.title} - ${item.difficulty}</option>`).join("");
   elements.puzzleSelect.value = puzzle.id;
 }
 
@@ -143,6 +143,7 @@ function activateChoiceFromKeyboard(event, position, team) {
 function renderHeader() {
   elements.level.textContent = puzzle.level;
   elements.caseNumber.textContent = `Case ${puzzle.number} of ${puzzles.length}`;
+  elements.difficulty.textContent = `Logic ${puzzle.difficultyRank} of ${puzzles.length}: ${puzzle.difficulty}`;
   elements.title.textContent = puzzle.title;
   elements.summary.textContent = puzzle.summary;
   const assignedCount = Object.keys(state.assignments).length;

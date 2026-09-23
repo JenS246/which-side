@@ -8,7 +8,7 @@ test("unsupported choices are distinguished from contradictions", () => {
   assert.equal(evaluateChoice(puzzle, {}, "B4", TEAM.PLAINTIFF).status, "unsupported");
   const wrong = evaluateChoice(puzzle, {}, "A1", TEAM.DEFENDANT);
   assert.equal(wrong.status, "contradiction");
-  assert.deepEqual(wrong.proofIds, ["t1-01"]);
+  assert.deepEqual(wrong.proofIds, ["p1-01"]);
 });
 
 test("accepted moves follow the visible deduction chain", () => {

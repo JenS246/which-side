@@ -63,6 +63,7 @@ main { width: min(1480px, 100%); margin: 0 auto; padding: clamp(1rem, 2.6vw, 2.2
 .case-file { position: relative; display: grid; grid-template-columns: minmax(260px, 1.35fr) minmax(300px, 1fr); gap: 1.5rem; padding: 1.35rem 1.5rem 1.25rem; background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 .file-tab { position: absolute; top: -14px; left: 24px; padding: .35rem .8rem .45rem; background: var(--mustard); color: #2d2615; border: 1px solid #82651c; border-bottom: 0; border-radius: var(--radius) var(--radius) 0 0; font-size: .72rem; font-weight: 900; text-transform: uppercase; letter-spacing: .1em; }
 .case-number, .desk-label { margin: 0 0 .28rem; color: var(--plum); font-size: .72rem; font-weight: 900; text-transform: uppercase; letter-spacing: .1em; }
+.difficulty-label { display: inline-block; margin: .2rem 0 .45rem; padding: .2rem .52rem; border: 1px solid currentColor; border-radius: 999px; color: var(--teal); font-size: .72rem; font-weight: 900; letter-spacing: .025em; }
 .case-file h2 { margin: 0; font-size: clamp(1.4rem, 3vw, 2.25rem); line-height: 1.05; letter-spacing: -.035em; }
 .case-summary { margin: .48rem 0 0; max-width: 62ch; line-height: 1.45; }
 .case-file blockquote { margin: 0; padding: .8rem 0 .8rem 1.1rem; align-self: center; border-left: 5px solid var(--coral); color: var(--muted); font-size: .9rem; line-height: 1.5; font-weight: 600; }
