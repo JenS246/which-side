@@ -1,0 +1,12 @@
+{
+  "name": "which-side",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "validate": "node scripts/validate-puzzles.js",
+    "test": "node --test",
+    "check": "npm run validate && npm test"
+  }
+}

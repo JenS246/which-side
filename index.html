@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Which Side? is a quick civil-case logic game. Use clues to sort sixteen case-team members.">
+  <meta name="theme-color" content="#17324d">
+  <title>Which Side? A quick civil-case logic game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#board">Skip to the board</a>
+  <header class="masthead">
+    <div class="brand-block">
+      <div class="brand-mark" aria-hidden="true">WS?</div>
+      <div>
+        <h1>Which Side?</h1>
+        <p>A quick civil-case logic game</p>
+      </div>
+    </div>
+    <div class="case-controls">
+      <label for="puzzle-select">Case file</label>
+      <select id="puzzle-select" aria-label="Choose a case puzzle"></select>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-file" aria-labelledby="case-title">
+      <div class="file-tab" id="level-label">Tutorial</div>
+      <div class="case-copy">
+        <p class="case-number" id="case-number">Case 1 of 8</p>
+        <h2 id="case-title">Renovation Notes</h2>
+        <p class="case-summary" id="case-summary"></p>
+      </div>
+      <blockquote>The plaintiff brings the civil claim. The defendant responds to it. In this fictional puzzle, every character has been assigned to exactly one case team.</blockquote>
+    </section>
+
+    <section class="game-toolbar" aria-label="Game progress and controls">
+      <div class="progress-copy">
+        <strong id="progress">0 of 16 assigned</strong>
+        <span id="timer-readout" hidden>0:00</span>
+      </div>
+      <div class="toolbar-actions">
+        <label class="timer-toggle"><input id="timer-toggle" type="checkbox"> Timer</label>
+        <button id="hint-button" type="button">Hint</button>
+        <button id="undo-button" type="button">Undo</button>
+        <button id="reset-button" type="button">Reset</button>
+      </div>
+    </section>
+
+    <div class="game-layout">
+      <aside class="clue-desk" aria-labelledby="clue-heading">
+        <div class="clue-heading-row">
+          <div>
+            <p class="desk-label">Open notes</p>
+            <h2 id="clue-heading">Visible clues</h2>
+          </div>
+          <span id="clue-count" aria-label="Visible clue count">1</span>
+        </div>
+        <ol id="clue-list" class="clue-list"></ol>
+        <details class="board-guide">
+          <summary>Board-language guide</summary>
+          <ul>
+            <li>Rows run horizontally and are numbered 1 through 4.</li>
+            <li>Columns run vertically and are labeled A through D.</li>
+            <li>Beside means immediately left or right.</li>
+            <li>Above and below mean the same column.</li>
+            <li>Neighbor includes horizontal, vertical, and diagonal positions.</li>
+            <li>Corners are A1, D1, A4, and D4.</li>
+          </ul>
+        </details>
+      </aside>
+
+      <section class="board-wrap" aria-labelledby="board-heading">
+        <div class="board-topline">
+          <h2 id="board-heading">Case team board</h2>
+          <div class="team-key" aria-label="Team color key">
+            <span class="key-plaintiff">P Plaintiff</span>
+            <span class="key-defendant">D Defendant</span>
+          </div>
+        </div>
+        <div id="board" class="board" role="group" aria-label="Four by four character grid" tabindex="-1"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="message" class="message" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <dialog id="completion-dialog" class="completion-dialog" aria-labelledby="completion-title">
+    <div class="confetti-mark" aria-hidden="true">CASE TEAMS SET</div>
+    <h2 id="completion-title">The case teams are set.</h2>
+    <p id="completion-details"></p>
+    <p class="closing-reminder">In a civil case, the plaintiff brings the claim and the defendant responds.</p>
+    <label for="share-result">Share result</label>
+    <textarea id="share-result" rows="3" readonly></textarea>
+    <div class="completion-actions">
+      <button id="copy-button" type="button">Copy result</button>
+      <button id="replay-button" type="button">Replay</button>
+      <button id="next-button" type="button">Next Case</button>
+    </div>
+  </dialog>
+
+  <template id="character-template">
+    <article class="character-card">
+      <div class="portrait" role="img"></div>
+      <div class="character-meta">
+        <span class="position"></span>
+        <h3 class="name"></h3>
+        <p class="role"></p>
+      </div>
+      <div class="choice-controls">
+        <button class="choice plaintiff-choice" type="button"><span class="choice-long">Plaintiff</span><span class="choice-short" aria-hidden="true">P</span></button>
+        <button class="choice defendant-choice" type="button"><span class="choice-long">Defendant</span><span class="choice-short" aria-hidden="true">D</span></button>
+      </div>
+      <div class="clue-seal"><span aria-hidden="true">✦</span> <span class="seal-copy">Clue sealed</span></div>
+      <div class="team-stamp" aria-hidden="true"></div>
+    </article>
+  </template>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
