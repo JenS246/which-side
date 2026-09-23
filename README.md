@@ -62,6 +62,6 @@ All controls use native keyboard-accessible elements, visible focus rings, descr
 
 The sixteen-character portrait sheet was generated specifically for this project with OpenAI's built-in image generation tool using this final prompt summary:
 
-> A precise 4-by-4 sprite sheet of sixteen diverse adult civil-litigation team members in an original editorial gouache and colored-pencil style, with warm paper, navy linework, teal, coral, mustard, and plum. No text, logos, police, gavels, scales, or team-coded styling.
+> A precise 4-by-4 sprite sheet of sixteen diverse adult civil-litigation team members in a contemporary hand-drawn realistic-cartoon style. Expressive black and cobalt brush-pen outlines, loose construction marks, marker hatching, cool backgrounds, and flat screen-printed cobalt, chartreuse, tangerine, raspberry, lavender, and mint inks. Varied poses, ages, expressions, and presentations. No text, logos, police, gavels, scales, or team-coded styling.
 
 The asset is stored at `assets/portrait-grid.png` and is cropped into individual cards with CSS background positioning.
